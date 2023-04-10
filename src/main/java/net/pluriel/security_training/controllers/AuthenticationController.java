@@ -21,20 +21,20 @@ import java.io.IOException;
 @RequestMapping("/api/auth")
 public class AuthenticationController {
 
-    public final AuthService userService;
+    public final AuthService authService;
 
     @PostMapping("/addUser")
     public ResponseEntity<AuthResponse> register(
             @RequestBody RegisterRequest request
     ){
-        return ResponseEntity.ok(userService.register(request));
+        return ResponseEntity.ok(authService.register(request));
     }
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> authenticate(
             @RequestBody AuthRequest authRequest
     ){
-        return ResponseEntity.ok(userService.authenticate(authRequest));
+        return ResponseEntity.ok(authService.authenticate(authRequest));
     }
 
     @PostMapping("/refresh_token")
@@ -42,6 +42,6 @@ public class AuthenticationController {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException {
-            userService.refreshToken(request, response);
+            authService.refreshToken(request, response);
     }
 }

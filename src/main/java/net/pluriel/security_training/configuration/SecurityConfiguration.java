@@ -35,7 +35,6 @@ public class SecurityConfiguration {
                                 .requestMatchers("/user/allUsers").hasAuthority("ADMIN")
                                 .requestMatchers("/user/{id}").hasAuthority("ADMIN")
                                 .requestMatchers("/user/{id}/password").hasAuthority("USER")
-//                                .requestMatchers("/user/**").hasAuthority("USER")
                                 .anyRequest()
                                 .permitAll()
                                 .and()
