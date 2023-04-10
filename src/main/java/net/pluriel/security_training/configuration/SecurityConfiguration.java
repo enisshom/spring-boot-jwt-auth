@@ -32,7 +32,10 @@ public class SecurityConfiguration {
                     try {
                         auth
                                 .requestMatchers("/api/auth/addUser").hasAuthority("ADMIN")
-                                .requestMatchers("/user/**").hasAuthority("USER")
+                                .requestMatchers("/user/allUsers").hasAuthority("ADMIN")
+                                .requestMatchers("/user/{id}").hasAuthority("ADMIN")
+                                .requestMatchers("/user/{id}/password").hasAuthority("USER")
+//                                .requestMatchers("/user/**").hasAuthority("USER")
                                 .anyRequest()
                                 .permitAll()
                                 .and()
