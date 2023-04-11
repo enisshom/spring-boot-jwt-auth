@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserResponseDto create(UserRequestDto UserRequestDto) {
 		User UserRequest = UserMapper.convertRequestToEntity(UserRequestDto);
-		//en peut utiliser PasswordEncoder aussi
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();  
 		
         UserRequest.setLastname(UserRequest.getLastname().toUpperCase());
@@ -54,13 +54,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserResponseDto getOne(Integer id){
 		User User = UserRepository.findById(id).orElseThrow(() -> new NotFound("Not Found"));
-//		Optional<User> UserOpt = UserRepository.findById(id);
-//		User User = null;
-//		if(UserOpt.isPresent()) {
-//			User = UserOpt.get();
-//		}else {
-//			throw new Exception("Not Found");
-//		}
+
 		return UserMapper.convertEntityToResponse(User);
 	}
 
