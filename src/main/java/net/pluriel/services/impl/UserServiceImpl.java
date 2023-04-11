@@ -23,7 +23,7 @@ import net.pluriel.entities.Role;
 import net.pluriel.entities.User;
 import net.pluriel.exceptions.NotFound;
 import net.pluriel.exceptions.RestException;
-import net.pluriel.repositories.TokenRepository;
+
 import net.pluriel.repositories.UserRepository;
 import net.pluriel.security.jwt.JwtService;
 import net.pluriel.services.UserService;
