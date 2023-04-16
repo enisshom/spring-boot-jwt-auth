@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests((auth) -> {
                     try {
                         auth
-                                .requestMatchers("/api/auth/addUser").hasAuthority("ADMIN")
+                                .requestMatchers("/auth/addUser").hasAuthority("ADMIN")
                                 .requestMatchers("/user/allUsers").hasAuthority("ADMIN")
                                 .requestMatchers("/user/{id}").hasAuthority("ADMIN")
                                 .requestMatchers("/user/{id}/password").hasAuthority("USER")

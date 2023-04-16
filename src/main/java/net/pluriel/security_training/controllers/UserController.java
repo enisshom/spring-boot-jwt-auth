@@ -18,10 +18,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @GetMapping("/test")
-    public ResponseEntity<String> saysalam() {
-        return ResponseEntity.ok("asalmou alaikoum");
-    }
 
     @GetMapping("/allUsers")
     public List<User> getAllUsers() {
@@ -41,4 +37,5 @@ public class UserController {
         userService.changePassword(id, oldPassword, newPassword);
         return ResponseEntity.ok("Password changed successfully");
     }
+
 }
